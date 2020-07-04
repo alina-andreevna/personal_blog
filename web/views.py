@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from main.settings import PASSWORD
+from main.settings import PASSWORD, AUTHORIZED
 from web.models import Publication, Feedback, Comments
+
 
 
 def status(request):
@@ -9,16 +10,30 @@ def status(request):
 
 
 def index(request):
-    response = render(request, 'main.html')
+    global AUTHORIZED
+
+    if request.method == 'POST':
+        password = request.POST.get('password')
+
+        if password == PASSWORD:
+            AUTHORIZED = True
+        else:
+            AUTHORIZED = False
+
+    response = render(request, 'main.html', {
+                    'autorized': AUTHORIZED})
     return HttpResponse(response)
 
 
 def page404(request):
-    response = render(request, 'page404.html')
+    global AUTHORIZED
+    response = render(request, 'page404.html', {
+                    'autorized': AUTHORIZED})
     return HttpResponse(response)
 
 
 def contact(request):
+    global AUTHORIZED
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -33,47 +48,52 @@ def contact(request):
                                         text=text)
                 return render(request, 'contacts.html', {
                     'send_status': 'Sended. Thanks for feedback.',
-                    'color': 'green'
-                })
+                    'color': 'green',
+                    'autorized': AUTHORIZED})
             else:
                 return render(request, 'contacts.html', {
                     'send_status': 'Not sended. Enter your name',
-                    'color': 'red'
-                })
+                    'color': 'red',
+                    'autorized': AUTHORIZED})
         else:
             return render(request, 'contacts.html', {
                     'send_status': 'Not sended. Both email and phone shouldnt be empty',
-                    'color': 'red'
-            })
+                    'color': 'red',
+                    'autorized': AUTHORIZED})
 
     response = render(request, 'contacts.html', {
                     'send_status': '',
-                    'color': 'red'
-            })
+                    'color': 'red',
+                    'autorized': AUTHORIZED})
     return HttpResponse(response)
 
 
 def publications(request):
+    global AUTHORIZED
+
     publications_sorted = Publication.objects.order_by('-date')
 
     response = render(request, 'publications.html', {
-        'publications':  publications_sorted,
-        'title': 'ALL'
-    })
+                    'publications':  publications_sorted,
+                    'title': 'ALL',
+                    'autorized': AUTHORIZED})
     return HttpResponse(response)
 
 
 def publication(request, pub_id):
+    global AUTHORIZED
 
     try:
         comments = Comments.objects.filter(pub=pub_id)
     except Comments.DoesNotExist:
-        return redirect('/page404/')
+        return redirect('/page404/', {
+                    'autorized': AUTHORIZED})
 
     try:
         publication = Publication.objects.get(id=pub_id)
     except Publication.DoesNotExist:
-        return redirect('/page404/')
+        return redirect('/page404/', {
+                    'autorized': AUTHORIZED})
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -88,21 +108,21 @@ def publication(request, pub_id):
             return render(request, 'publication.html', {
                 'publication': publication,
                 'pub_id': pub_id,
-                'comments': comments
-            })
+                'comments': comments,
+                'autorized': AUTHORIZED})
 
         else:
             return render(request, 'publication.html', {
                 'publication': publication,
                 'pub_id': pub_id,
-                'comments': comments
-            })
+                'comments': comments,
+                'autorized': AUTHORIZED})
 
     response = render(request, 'publication.html', {
         'publication': publication,
         'pub_id': pub_id,
-        'comments': comments
-    })
+        'comments': comments,
+        'autorized': AUTHORIZED})
     return HttpResponse(response)
 
 
@@ -113,16 +133,18 @@ def post(request):
         password = request.POST.get('password')
         if password != PASSWORD:
             return render(request, 'post.html', {
-                'error': 'wrong password'
-            })
+                        'error': 'wrong password',
+                        'autorized': AUTHORIZED})
 
         if title and text and password:
             Publication.objects.create(title=title, text=text)
-            return redirect('/publications/')
+            return redirect('/publications/', {
+                        'autorized': AUTHORIZED})
         else:
             return render(request, 'post.html', {
-                          'error': 'title and text should not be empty'
-            })
-    response = render(request, 'post.html')
+                        'error': 'title and text should not be empty',
+                        'autorized': AUTHORIZED})
+    response = render(request, 'post.html', {
+                        'autorized': AUTHORIZED})
     return HttpResponse(response)
 

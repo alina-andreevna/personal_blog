@@ -8,7 +8,8 @@
                             crossorigin="anonymous">
     <style>
     body {
-    padding-left: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
     }
 
     form,
@@ -34,6 +35,12 @@
   <li class="nav-item">
     <a class="nav-link" href = '/publications'>Публикации</a>
   </li>
+
+{% if autorized == True %}
+    <li class="nav-item">
+    <a class="nav-link" href = '/post'>Создать публикацию</a>
+    </li>
+{% endif %}
 </ul>
 
     {% block content%}{% endblock content%}
