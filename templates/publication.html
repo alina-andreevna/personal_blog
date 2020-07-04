@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Publication - {{publication.title}}{% endblock title %}
+
+{% block content %}
+    <h2>{{publication.title}}</h2>
+    <i>{{publication.date}}</i>
+    <br><br>
+    <p>{{publication.text|safe}}</p>
+
+
+    <h3>Comments</h3>
+    {% for comment in comments %}
+        {{ comment.name }}
+        <br>
+        {{ comment.text}}
+        <br>
+        {{ comment.date }}
+        <br><br><br>
+    {% endfor %}
+
+
+    <p>
+        <form action='/publication/{{ pub_id }}' method="post">
+            {% csrf_token %}
+            <h3>Leave your comment</h3>
+            <input type="text" name="name", placeholder="Name">
+            <br><br>
+            <textarea name="text" placeholder="Your comment"> </textarea>
+            <br>
+            <button>Send</button>
+        </form>
+    </p>
+
+
+{% endblock content %}
