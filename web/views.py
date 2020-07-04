@@ -4,7 +4,6 @@ from main.settings import PASSWORD, AUTHORIZED
 from web.models import Publication, Feedback, Comments
 
 
-
 def status(request):
     return HttpResponse("Status OK <a href = '/'> index</a>")
 
@@ -47,17 +46,17 @@ def contact(request):
                                         phone=phone,
                                         text=text)
                 return render(request, 'contacts.html', {
-                    'send_status': 'Sended. Thanks for feedback.',
+                    'send_status': 'Ваше сообщение отправлено.',
                     'color': 'green',
                     'autorized': AUTHORIZED})
             else:
                 return render(request, 'contacts.html', {
-                    'send_status': 'Not sended. Enter your name',
+                    'send_status': 'Ваше сообщение не отправлено. Поле Имя не должно быть пустым',
                     'color': 'red',
                     'autorized': AUTHORIZED})
         else:
             return render(request, 'contacts.html', {
-                    'send_status': 'Not sended. Both email and phone shouldnt be empty',
+                    'send_status': 'Ваше сообщение не отправлено. Введите почту или номер телефона',
                     'color': 'red',
                     'autorized': AUTHORIZED})
 
