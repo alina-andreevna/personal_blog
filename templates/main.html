@@ -3,6 +3,30 @@
 {% block title %}Welcome to my blog{% endblock title %}
 
 {% block content %}
-    <h1>Welcome to my blog </h1>
-    <p>Меня зовут Алина. Я инженер.</p>
+
+    <div class="jumbotron">
+      <h1 class="display-4">Добро пожаловать</h1>
+      <p class="lead">Меня зовут Алина. Я выпускница Санкт-Петербургского Политеха.
+          Сейчас работаю разработчиком встраиваемых систем с специализацией на цифровую обработку сигнала.
+          В свободное время занимаюсь рисованием и программированием на Python. Здесь вы можете найти моё резюме и
+          оставить обратную связь о сайте в разделе Контакты. А также прочитать несколько статей на интересующие меня
+          темы в разделе Публикации.</p>
+
+      <hr class="my-4">
+        <p>Этот сайт написан с использованием фреймворка Django и набора Bootstrap. Хранение данных происходит в базе
+            данных sqlite3. Для возможности создать новую публикацию необходимо ввести пароль в поле ниже.</p>
+
+      <p class="lead">
+        <form action="/contact/" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+            <label for="examplePassword">Ввести пароль для возможности создать публикацию:</label>
+            <input type="password" name="password" class="form-control" id="examplePassword" aria-describedby="passwordHelp">
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">Send</button>
+         </form>
+      </p>
+    </div>
 {% endblock content %}
