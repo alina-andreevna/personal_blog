@@ -17,24 +17,46 @@
     max-width: 655px;
     }
 
-<!--    form {-->
-<!--    max-width: 655px;-->
-<!--    }-->
+    .media{
+    padding-left: 50px;
+    }
+
+    .line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(50, 115, 220, 0.3);
+    margin-bottom: 30px;
+    margin-top: 30px;
+    }
+
+    .leftstr, .rightstr {
+    float: left; /* Обтекание справа */
+    width: 50%; /* Ширина текстового блока */
+   }
+   .rightstr {
+    text-align: right; /* Выравнивание по правому краю */
+   }
+
     </style>
 
 </head>
 <body>
 
 <ul class="nav nav-tabs">
-  <li class="nav-item">
+    <li class="nav-item">
     <a class="nav-link" href = '/'>Главная</a>
-  </li>
-  <li class="nav-item">
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href = 'https://alina-andreevna.github.io/cv/'>Резюме (external link)</a>
+    </li>
+
+    <li class="nav-item">
     <a class="nav-link" href = '/contact'>Контакты</a>
-  </li>
-  <li class="nav-item">
+    </li>
+    <li class="nav-item">
     <a class="nav-link" href = '/publications'>Публикации</a>
-  </li>
+    </li>
 
 {% if autorized == True %}
     <li class="nav-item">
