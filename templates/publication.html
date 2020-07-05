@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+<!--{% load static %}-->
 
 {% block title %}Publication - {{publication.title}}{% endblock title %}
 
@@ -8,28 +9,49 @@
     <br><br>
     <p>{{publication.text|safe}}</p>
 
-
-    <h3>Comments</h3>
+    <h5>Комментарии</h5>
     {% for comment in comments %}
-        {{ comment.name }}
-        <br>
-        {{ comment.text}}
-        <br>
-        {{ comment.date }}
-        <br><br><br>
+
+        <div class="media">
+            {% load static %}<img src= "{% static 'pic.png' %}" class="mr-3" alt="avatar"
+                 style="width: 5%">
+            <div class="media-body">
+
+                <div class="leftstr">
+                    <h5 class="mt-0">{{ comment.name }}</h5>
+                </div>
+
+                <div class="rightstr">
+                    <i class="mt-0">{{ comment.date }}</i>
+                </div>
+
+                <div style="clear: left"></div>
+
+                <p>{{ comment.text}}</p>
+            </div>
+        </div>
+        <div class="line"></div>
+
     {% endfor %}
 
-
+    <h5>Оставить новый комментарий</h5>
     <p>
-        <form action='/publication/{{ pub_id }}' method="post">
+        <form action="/publication/{{ pub_id }}" method="post">
             {% csrf_token %}
-            <h3>Leave your comment</h3>
-            <input type="text" name="name", placeholder="Name">
-            <br><br>
-            <textarea name="text" placeholder="Your comment"> </textarea>
-            <br>
-            <button>Send</button>
-        </form>
+
+            <div class="form-group">
+            <label for="exampleInputName">Ваше имя</label>
+            <input type="name" name="name" class="form-control" id="exampleInputName" aria-describedby="NameHelp">
+            <small id="nameHelp" class="form-text text-muted">Обязательное поле</small>
+            </div>
+
+            <div class="form-group">
+            <label for="exampleFormControlTextarea">Текст комментария</label>
+            <textarea name="text" class="form-control" id="exampleFormControlTextarea" rows="5"
+                                                                            placeholder="Что вы хотите сказать?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Отправить</button>
+         </form>
     </p>
 
 
