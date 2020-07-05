@@ -7,26 +7,35 @@
     <div class="jumbotron">
       <h1 class="display-4">Добро пожаловать</h1>
       <p class="lead">Меня зовут Алина. Я выпускница Санкт-Петербургского Политеха.
-          Сейчас работаю разработчиком встраиваемых систем с специализацией на цифровую обработку сигнала.
-          В свободное время занимаюсь рисованием и программированием на Python. А ещё люблю путешествовать.</p>
+          Сейчас работаю разработчиком встраиваемых систем с специализацией на цифровую обработку сигнала и ПЛИС.
+          В свободное время занимаюсь рисованием и разработкой на Python в сфере машинного обучения. Люблю
+          путешествовать.</p>
       <p class="lead">Здесь вы можете найти моё резюме и оставить обратную связь о сайте в разделе Контакты. А также
           прочитать несколько статей на интересующие меня темы в разделе Публикации.</p>
+        <p class="lead">Для возможности создать новую публикацию необходимо ввести пароль в поле ниже.</p>
 
       <hr class="my-4">
-        <p>Этот сайт написан с использованием фреймворка Django и набора Bootstrap. Хранение данных происходит в базе
-            данных sqlite3. Для возможности создать новую публикацию необходимо ввести пароль в поле ниже.</p>
+        <p>Это мой первый и единственный сайт. Он написан с использованием фреймворков Django и Bootstrap. Хранение
+            данных происходит в базе данных sqlite3. Здесь нет полноценной авторизации и загрузки медиа-контента.</p>
+        <p>Сайт собран "на скорую руку" в качестве досуга без знаний паттернов проектирования в области веб-разработки.</p>
 
-      <p class="lead">
-        <form action="/" method="post">
-            {% csrf_token %}
-
-            <div class="form-group">
-            <label for="examplePassword">Ввести пароль для возможности создать публикацию:</label>
-            <input type="password" name="password" class="form-control" id="examplePassword" aria-describedby="passwordHelp">
+        {% if autorized %}
+            <div class="alert alert-success" role="alert">
+                  Пароль принят. Раздел Создать публикацию доступен в главном меню.
             </div>
+        {% else %}
+            <p class="lead">
+                <form action="/" method="post">
+                    {% csrf_token %}
 
-            <button type="submit" id="authorized" class="btn btn-outline-primary">Отправить</button>
-         </form>
-      </p>
+                    <div class="form-group">
+                    <label for="examplePassword">Ввести пароль для возможности создать публикацию:</label>
+                    <input type="password" name="password" class="form-control" id="examplePassword" aria-describedby="passwordHelp">
+                    </div>
+
+                    <button type="submit" id="authorized" class="btn btn-outline-primary">Отправить</button>
+                 </form>
+            </p>
+        {% endif %}
     </div>
 {% endblock content %}
