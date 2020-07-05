@@ -5,15 +5,33 @@
 {% block content %}
     <h2>Создать публикацию</h2>
 
-    <p style="color: red">{{ error }}</p>
-    <form action="/post/" method="post">
-        {% csrf_token %}
-        <input type="text" name="password", placeholder="Пароль">
-        <br><br>
-        <input type="text" name="title", placeholder="Название публикации">
-        <br><br>
-        <textarea name="text" placeholder="Текст публикации" > </textarea>
-        <br><br>
-        <button>Опубликовать</button>
-    </form>
+    <p>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+        {% endif %}
+
+        <form action="/post/" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+            <label for="examplePassword">Ввести пароль для возможности создать публикацию:</label>
+            <input type="password" name="password" class="form-control" id="examplePassword" aria-describedby="passwordHelp">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleTitleName">Заголовок</label>
+            <input type="text" name="title" class="form-control" id="exampleTitleName" aria-describedby="TitleHelp">
+            <small id="TitleHelp" class="form-text text-muted">Название публикации. Обязательное поле.</small>
+            </div>
+
+            <div class="form-group">
+            <label for="exampleFormControlTextarea">Текст публикации</label>
+            <textarea name="text" class="form-control" id="exampleFormControlTextarea" rows="8"
+                                                                            placeholder="..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Отправить</button>
+         </form>
+    </p>
 {% endblock content %}
