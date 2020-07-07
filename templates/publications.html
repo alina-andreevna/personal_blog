@@ -4,19 +4,34 @@
 
 {% block content %}
 
-<h2>Publications:</h2>
-<table>
-    <thead>
-        <th><b>#</b></th>
-        <th><b>Publication</b></th>
-        <th><b>Date</b></th>
-    </thead>
-    {% for publication in publications %}
-        <tr>
-            <td>{{ publication.id }}</td>
-            <td><a href="/publication/{{ publication.id }}" >{{ publication.title }}</td>
-            <td>{{ publication.date }}</td>
-        </tr>
-    {% endfor %}
-</table>
+<h2>Каталог публикаций</h2>
+<!-- Block level -->
+<!--/<div class="row">-->
+<!--  <div class="col-40 text-truncate">-->
+<!--    FPGA (англ. field-programmable gate array) содержат блоки умножения-суммирования, которые широко применяются при обработке сигналов (DSP, англ. digital signal processing), а также логические элементы (как правило, на базе таблиц перекодировки — таблиц истинности) и их блоки коммутации. FPGA обычно используются для обработки сигналов, имеют больше логических элементов и более гибкую архитектуру, чем CPLD. Программа для FPGA хранится в распределённой памяти, которая может быть выполнена как на основе энергозависимых ячеек статического ОЗУ (подобные микросхемы производят, например, фирмы «Xilinx» и «Altera») — в этом случае программа не сохраняется при исчезновении электропитания микросхемы, так и на основе энергонезависимых ячеек flash-памяти или перемычек antifuse (такие микросхемы производит фирма «Actel» и «Lattice Semiconductor») — в этих случаях программа сохраняется при исчезновении электропитания. Если программа хранится в энергозависимой памяти, то при каждом включении питания микросхемы необходимо заново конфигурировать её при помощи начального загрузчика, который может быть встроен и в саму FPGA. Альтернативой ПЛИС FPGA являются более медленные цифровые процессоры обработки сигналов. FPGA применяются также, как ускорители универсальных процессоров в суперкомпьютерах (например, компьютер «Cray XD1» компании «Cray», проект «RASC» компании «Silicon Graphics» («SGI»)).-->
+<!--  </div>-->
+<!--</div>-->
+{% for publication in publications %}
+
+    <div class="media">
+        <div class="media-body">
+
+            <div class="line"></div>
+
+            <div class="leftstr">
+                <h5 class="mt-0"><a href="/publication/{{ publication.id }}" >{{ publication.title }}</a></h5>
+            </div>
+
+            <div class="rightstr">
+                <i class="mt-0">{{ publication.date }}</i>
+            </div>
+
+            <div style="clear: left"></div>
+
+            <div class="size">{{ publication.text }}</div>
+        </div>
+    </div>
+
+{% endfor %}
+
 {% endblock content %}
