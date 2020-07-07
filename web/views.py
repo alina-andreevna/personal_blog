@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from main.settings import PASSWORD, AUTHORIZED
+from main.settings import PASSWORD, AUTHORIZED, EMAIL_HOST_USER
+from django.core.mail import send_mail
+
 from web.models import Publication, Feedback, Comments
 
 
@@ -39,12 +41,33 @@ def contact(request):
         phone = request.POST.get('phone')
         text = request.POST.get('text')
 
-        if email or phone:
+        if email:
             if name:
+                subject = 'Письмо обратной связи'
+                message = 'Спасибо, ' + name + ' что воспользовались моим сайтом. Я получила Ваше письмо.'\
+                          '\n'\
+                          'Постараюсь ответить на него как можно скорее.' \
+                          '\n\n' \
+                          'С уважением,' \
+                          '\n' \
+                          'Галичина Алина'
+                send_mail(subject, message, EMAIL_HOST_USER,
+                          [email], fail_silently=False)
+
+                subject = 'Новое сообщение с сайта'
+                message = 'Тебе написал: ' + name + '\n'\
+                          'Почта: ' + email + '\n' \
+                          'Телефон: ' + phone + '\n'\
+                          'Текст: ' + text + '\n'
+
+                send_mail(subject, message, EMAIL_HOST_USER,
+                          [EMAIL_HOST_USER], fail_silently=False)
+
                 Feedback.objects.create(name=name,
                                         email=email,
                                         phone=phone,
                                         text=text)
+
                 return render(request, 'contacts.html', {
                     'send_status': 'Ваше сообщение отправлено.',
                     'color': 'green',
@@ -146,4 +169,3 @@ def post(request):
     response = render(request, 'post.html', {
                         'autorized': AUTHORIZED})
     return HttpResponse(response)
-
