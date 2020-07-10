@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Resume: English{% endblock title %}
+
+{% block style %}
+{% load static %}<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+{% load static %}<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+{% endblock style %}
+
+
+{% block content %}
+    <section class="avatar">
+        <div class="container container_eng">
+            <div class="avatar__wrapper avatar__wrapper_eng">
+                <div class="avatar__inner avatar__inner_eng">
+                    <h1 class="avatar__title avatar__title_eng">Galichina Alina</h1>
+                    <div class="avatar__box">
+                        <div class="box__contact">
+                            <ul class="avatar__contact avatar__contact_eng">
+                                <li class="contact__item contact__item_eng"> <span> Phone</span>: on requests</li>
+                                <li class="contact__item contact__item_eng"><span>E-mail</span>:
+                                    alinagalichina93@gmail.com
+                                </li>
+                                <li class="contact__item contact__item_eng"><span>GitHub</span>:
+                                    <a href="https://github.com/alina-andreevna">alina-andreevna</a>
+                                </li>
+                                <li class="contact__item contact__item_eng"><span>Address</span>: 91 Svetlanovsky
+                                    prospect,
+                                    apr.61, Saint-Petersburg, 195269, Russia</li>
+                            </ul>
+                        </div>
+                        <div class="box__data">
+                            <div class="avatar__time avatar__time_eng">Personal details</div>
+                            <ul class="avatar__descr">
+                                <li class="avatar__item avatar__item_eng">Born: 14 th April 1993</li>
+                                <li class="avatar__item avatar__item_eng">Mother language: Russian</li>
+                                <li class="avatar__item avatar__item_eng">Nationality: Russia</li>
+                                <li class="avatar__item avatar__item_eng">Marital status: married</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="/resume_rus" class="version version_eng">rus</a>
+                <img src="{% static 'img/photo.jpg' %}" alt="photo" class="avatar__photo avatar__photo_eng">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="experience">
+        <div class="container container_eng">
+            <div class="experience__wrapper">
+                <div class="line"></div>
+                <h2 class="experience__title experience__title_eng">CAREER OBJECTIVE</h2>
+                <div class="experience__descr experience__descr_eng">I consider to be a part of team FPGA or ASIC hardware developers. I also work with printed circuit board for DSP and transmission data (schematic and tracing solutions), designing and debugging stages.
+                </div>
+
+                <h2 class="experience__title experience__title_eng">WORK EXPERIENCE</h2>
+                <div class="experience__descr experience__descr_eng">2014 – now: Hardware engineer in AO “NII “Vektor” (www.nii-vektor.ru). Fiber optic, FPGA and PCB designer
+                </div>
+
+                <h2 class="experience__title experience__title_eng">EDUCATION</h2>
+                <div class="experience__descr experience__descr_eng">2010-2014: Peter the Great St. Petersburg Polytechnic University, Institute of Physics, Nanotechnology and Telecommunications, Bachelor’s Degree of Engineering and Technology.
+                </div>
+                <div class="experience__descr experience__descr_eng">2014-2016: Peter the Great St. Petersburg Polytechnic University, Institute of Physics, Nanotechnology and Telecommunications, Master’s Degree of Infocommunication technologies and communication systems
+                </div>
+
+                <h2 class="experience__title experience__title_eng">SKILLS</h2>
+                <ul class="experience__list experience__list_eng">
+                    <li class="experience__item">Language skills: English (Upper-Intermediate), French (Pre-Intermediate).</li>
+                    <li class="experience__item">Computer literacy: Altium Designer, Matlab, ISE, Vivado, ModelSim.</li>
+                    <li class="experience__item">RTL languages: VHDL (main), Verilog/SystemVerilog (testbench).</li>
+                    <li class="experience__item">Program languages: Python (NumPy, Pandas, Scikit-Learn, TensorFlow, Flask, Qt), C and C++ (basic level). </li>
+                    <li class="experience__item">FPGA: Xilinx 7 Series.</li>
+                    <li class="experience__item">Version Control System: Git, Subversion</li>
+                    <li class="experience__item">Fiber optic equipment: Optiva, Emcore</li>
+                    <li class="experience__item">Test and measurement equipment: Keysight Technologies, Rohde & Schwarz</li>
+                </ul>
+
+            </div>
+
+            <h2 class="experience__title experience__title_eng">PUBLICATONS</h2>
+            <ul class="experience__list">
+                <li class="experience__item">Microwave signal delay line, patent RU2715366C2</li>
+                <li class="experience__item">Method for delaying a microwave signal and implementing a delay line, patent RU2019122980A</li>
+            </ul>
+            <h2 class="experience__title experience__title_eng">EXTRACURRICULAR ACTIVITIES</h2>
+            <div class="experience__descr experience__descr_eng">Responsibility, self-training, self-criticism
+            </div>
+            <div class="line"></div>
+            <h2 class="experience__title experience__title_eng">INTERESTS</h2>
+            <ul class="experience__list">
+                <li class="experience__item">C-programming for MCU (STM32, Atmega);</li>
+                <li class="experience__item">Hiking;</li>
+                <li class="experience__item">Oil and watercolor painting.</li>
+            </ul>
+        </div>
+    </section>
+
+
+<script>
+function explode(){
+// $(document).ready(function() {
+$("#myModal").modal('show');
+// });
+}
+<!--2 сек после обновления страницы-->
+setTimeout(explode, 2000);
+</script>
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Навигация - Navigation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Для перехода к резюме на русском языке, нажмите RUS в правой верхней части страницы</p>
+                <div class="line"></div>
+                <p>To set Russian language please click RUS to upper right corner of this page.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть - Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+

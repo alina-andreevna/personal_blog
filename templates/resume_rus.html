@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}Resume: Russian{% endblock title %}
+
+{% block style %}
+{% load static %}<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+{% load static %}<link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+
+{% endblock style %}
+
+
+{% block content %}
+    <section class="avatar">
+        <div class="container">
+            <div class="avatar__wrapper">
+                <div class="avatar__inner">
+                    <h1 class="avatar__title">Галичина Алина Андреевна</h1>
+                    <div class="avatar__work">Желаемая должность: инженер, инженер 2ой кат., инженер 1ой кат.</div>
+                    <div class="avatar__pay">Зарплата: от 90 тыс. на руки</div>
+                    <ul class="avatar__contact">
+                        <li class="contact__item">Место проживания: Санкт-Петербург, Россия</li>
+                        <li class="contact__item">Гражданство: Россия</li>
+                        <li class="contact__item">Телефон: по запросу</li>
+                        <li class="contact__item">E-mail: alinagalichina93@gmail.com</li>
+                        <li class="contact__item">GitHub: <a href="https://github.com/alina-andreevna">alina-andreevna</a></li>
+                    </ul>
+                    <div class="avatar__time">Режим работы: полная рабочая неделя, полный рабочий день</div>
+                    <ul class="avatar__descr">
+                        <li class="avatar__item">Готовность к переезду: нет</li>
+                        <li class="avatar__item">Готовность к удалённой работе: да</li>
+                        <li class="avatar__item">Готовность к командировкам: да, к редким</li>
+                    </ul>
+                </div>
+                <a href="/resume_eng" class="version">eng</a>
+                {% load static %}<img src="{% static 'img/photo.jpg' %}" alt="photo" class="avatar__photo">
+            </div>
+        </div>
+
+    </section>
+    <section class="experience">
+        <div class="container">
+            <div class="experience__wrapper">
+                <div class="line"></div>
+                <h2 class="experience__title">ОПЫТ РАБОТЫ</h2>
+                <div class="experience__descr">Инженер, инженер 2 кат., АО «НИИ «ВЕКТОР»
+                    2014 – наст. вр.
+                </div>
+                <h3 class="respon__title">Основные обязанности</h3>
+                <ul class="respon__list">
+                    <li class="respon__item">Разработка принципиальных электрических схем, топологии печатной платы
+                        и конструкторской документации для плат цифровой обработки сигнала;</li>
+                    <li class="respon__item">Отладка схемотехнических решений с использованием
+                        контрольно-измерительного оборудования (КИМ);</li>
+                    <li class="respon__item">Моделирование алгоритмов цифровой обработки (ЦОС) в среде Matlab;</li>
+                    <li class="respon__item">Разработка программного обеспечения ПЛИС и его тестового окружения:
+                        ЦОС, CDC, GTX-трансиверы, Ethernet, I2C, RS-485,SPI;</li>
+                    <li class="respon__item">Отладка программного обеспечения ПЛИС в кристалле;</li>
+                    <li class="respon__item">Работа с волоконно-оптической техникой: лазерные передатчики,
+                        фотоприёмники, модуляторы Маха-Цендера, медиаконвертеры, SFP-модули</li>
+                    <li class="respon__item">Оформление патентных заявок.</li>
+                </ul>
+                <h3 class="progres__title">Достижения</h3>
+                <ul class="progres__list">
+                    <li class="progres__item">Разработка плат цифровой обработки (16 слоёв) на базе Xilinx Kintex7
+                        стандарта VPX 3U – схемотехника, трассировка, отладка;</li>
+                    <li class="progres__item">Разработка FMC мезонинного модуля (10 слоёв) для оцифровки аналогового
+                        сигнала частотой до 18 ГГц – схемотехника, трассировка, отладка;</li>
+                    <li class="progres__item">Разработка и отладка программного обеспечения ПЛИС для обнаружения и
+                        определения частотно-временных параметров наложенных сигналов с частотой до 18 ГГц; </li>
+                    <li class="progres__item">Разработка и внедрение маршрута разработки под ПЛИС (coding style, git,
+                        формирование ТЗ и приём программных модулей)</li>
+                    <li class="progres__item">Разработка платы сбора, обработки и хранения информации о телеметрии
+                        движущегося объекта на базе микроконтроллера STM32F4;</li>
+                    <li class="progres__item">Регистрация патентных заявок по оптическим линияс задержки СВЧ-сигнала
+                        RU2716283C2 и RU2715366C2.</li>
+                </ul>
+                <div class="line"></div>
+                <h2 class="outlook__title">ОЖИДАЕМЫЕ ПЕРСПЕКТИВЫ</h2>
+                <ul class="outlook__list">
+                    <li class="outlook__item">Работа с ПЛИС фирм Xilinx, Intel, Lattice в сфере ЦОС и передачи сигналов
+                        по высокоскоростным интерфейсам (в том числе по оптоволокну);</li>
+                    <li class="outlook__item">Разработка схемотехнических решений и топологии печатных плат для узлов
+                        ЦОС;</li>
+                    <li class="outlook__item">Разработка под ПЛИС с использованием языков высокого уровня: C, Python,
+                        Matlab;</li>
+                    <li class="outlook__item">Разработка tcl-скриптов для автоматизации процесса разработки;</li>
+                    <li class="outlook__item">Реализация машинного обучения в ПЛИС и не только;</li>
+                    <li class="outlook__item">Возможности обучения, повышения квалификации и карьерного роста;</li>
+                    <li class="outlook__item">Работа в коллективе увлечённых людей, нацеленных на результат.</li>
+                </ul>
+            </div>
+            <aside class="aside">
+                <div class="line"></div>
+                <h2 class="education__title">ОБРАЗОВАНИЕ</h2>
+                <div class="education__descr">Санкт-Петербургский государственный политехнический университет</div>
+                <div class="education__text">Факультет: ИФНИТ</div>
+                <div class="education__text">Специальность: Лазерные и оптоволоконные системы</div>
+                <div class="education__text">Степень: магистр</div>
+                <div class="education__data">2010-2016</div>
+                <div class="line"></div>
+                <h2 class="skills__title">НАВЫКИ</h2>
+                <ul class="skills__list">
+                    <li class="skills__item"><span>Altium Designer, КОМПАС 3D.</span></li>
+                    <li class="skills__item">Оформление конструкторской документации по ЕСКД</li>
+                    <li class="skills__item"> <span> Matlab, ISE14.7, Vivado 2018,
+                        ModelSim 10.6d.</span>
+                    </li>
+                    <li class="skills__item">Кристаллы <span>Xilinx 7 Series</span></li>
+                    <li class="skills__item"><span>VHDL</span> (основной), <span>Verilog/SystemVerilog</span> </li>
+                    <li class="skills__item">Работа с оборудованием фирм <span>Keysight Technologies, Rohde & Schwarz</span></li>
+                    <li class="skills__item"><span>Git, Subversion</span></li>
+                    <li class="skills__item">Оформление патентной заявки согласно правилам ФИПС</li>
+                </ul>
+                <div class="line"></div>
+                <h2 class="info__title">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</h2>
+                <div class="info__lang"> <span>Английский</span> – разговорный.</div>
+                <div class="info__lang"> <span>Французский</span> – со словарём.</div>
+                <div class="info__descr">Программирование на <span>Python</span> в <span>Jupyter Notebook</span> и <span>PyCharm</span> (мессенджер и
+                    графические приложения с использованием <span>Flask</span> и <span>QtDesigner</span>, обработка данных для передачи модели
+                    машинного обучения с использованием <span>pandas, numpy, scikit-learn, tensorflow</span>).</div>
+                <div class="info__descr">Программирование на <span>С</span> для микроконтроллеров – начальный уровень.</div>
+                <div class="line"></div>
+                <h2 class="property__title">ЛИЧНЫЕ КАЧЕСТВА </h2>
+                <ul class="property__list">
+                    <li class="property__item">Исполнительность</li>
+                    <li class="property__item">Ответственность</li>
+                    <li class="property__item">Самообучаемость</li>
+                    <li class="property__item">Самокритичность</li>
+                </ul>
+                <div class="line"></div>
+                <h2 class="about__title">ОБО МНЕ</h2>
+                <ul class="about__list">
+                    <li class="about__item">Замужем</li>
+                    <li class="about__item">Люблю походы и путешествия</li>
+                    <li class="about__item">Занимаюсь рисованием</li>
+                </ul>
+            </aside>
+
+        </div>
+    </section>
+
+<script>
+function explode(){
+// $(document).ready(function() {
+$("#myModal").modal('show');
+// });
+}
+<!--2 сек после обновления страницы-->
+setTimeout(explode, 2000);
+</script>
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Навигация - Navigation</h4>
+            </div>
+            <div class="modal-body">
+                <p>Для перехода к резюме на английском языке, нажмите ENG в правой верхней части страницы</p>
+                <div class="line"></div>
+                <p>To set Russian language please click ENG to upper right corner of this page.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть - Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
