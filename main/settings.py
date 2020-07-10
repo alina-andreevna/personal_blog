@@ -20,12 +20,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6_k-n^s1xt-cr_@_s#luomngo=_fquj9#a(=g6h50a44(n(=n0'
-PASSWORD = '12345'
+# SECRET_KEY = '6_k-n^s1xt-cr_@_s#luomngo=_fquj9#a(=g6h50a44(n(=n0'
+
+with open('static/txt/key.txt') as f:
+    SECRET_KEY = f.read().strip()
+
+with open('static/txt/pwd.txt') as f:
+    PASSWORD = f.read().strip()
+
 AUTHORIZED = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['5052c26fec0a.ngrok.io', '127.0.0.1']
 
@@ -130,9 +136,21 @@ STATIC_ROOT = 'staticfiles'
 # EMAIL SETTINGS
 #
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'alinagalichina93@gmail.com'
-EMAIL_HOST_PASSWORD = 'QW!1erty'
-EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'alinagalichina93'
-DEFAULT_TO_EMAIL = 'alinagalichina93@gmail.com'
+
+
+with open('static/txt/email_host.txt') as f:
+    EMAIL_HOST_USER = f.read().strip()
+
+
+with open('static/txt/port.txt') as f:
+    EMAIL_PORT = f.read().strip()
+
+with open('static/txt/email_host_pwd.txt') as f:
+    EMAIL_HOST_PASSWORD = f.read().strip()
+
+with open('static/txt/email_from_def.txt') as f:
+    DEFAULT_FROM_EMAIL = f.read().strip()
+
+with open('static/txt/email_for_def.txt') as f:
+    DEFAULT_FOR_EMAIL = f.read().strip()

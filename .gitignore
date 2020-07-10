@@ -112,3 +112,6 @@ media/
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
+# servirity txt files
+/static/txt/
