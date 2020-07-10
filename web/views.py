@@ -26,6 +26,16 @@ def index(request):
     return HttpResponse(response)
 
 
+def resume_rus(request):
+    response = render(request, 'resume_rus.html')
+    return HttpResponse(response)
+
+
+def resume_eng(request):
+    response = render(request, 'resume_eng.html')
+    return HttpResponse(response)
+
+
 def page404(request):
     global AUTHORIZED
     response = render(request, 'page404.html', {

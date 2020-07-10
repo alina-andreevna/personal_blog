@@ -26,4 +26,6 @@ urlpatterns = [
     path('publications/', views.publications),
     path('post/', views.post),
     path('page404/', views.page404),
+    path('resume_rus/', views.resume_rus),
+    path('resume_eng/', views.resume_eng),
 ]
