@@ -20,17 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
-with open('static/txt/key.txt') as f:
-    SECRET_KEY = f.read().strip()
-
-with open('static/txt/pwd.txt') as f:
-    PASSWORD = f.read().strip()
-
+SECRET_KEY = '6_k-n^s1xt-cr_@_s#luomngo=_fquj9#a(=g6h50a44(n(=n0'
+PASSWORD = '12345'
 AUTHORIZED = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['5052c26fec0a.ngrok.io', '127.0.0.1']
 
@@ -129,9 +124,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
   os.path.join(BASE_DIR, 'static/'),
 )
-
-STATIC_ROOT = 'staticfiles'
-
 # EMAIL SETTINGS
 #
 EMAIL_HOST = 'smtp.gmail.com'
