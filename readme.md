@@ -5,7 +5,10 @@ Simple blog with using Django 3.0 and Bootstrap frameworks
 Warning: blog in russian language
 
 ### Some pictures
-***add screenshots***
+![Main and contacts](https://github.com/alina-andreevna/personal_blog/blob/master/shoots/im1.jpg)
+![Pubs](https://github.com/alina-andreevna/personal_blog/blob/master/shoots/im2.jpg)
+![Resume and modal window](https://github.com/alina-andreevna/personal_blog/blob/master/shoots/im3.jpg)
+
 
 ### Pages
 * Главная - main page. Some info about me.
